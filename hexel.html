@@ -1,0 +1,55 @@
+<head>
+	<title>crawler</title>
+</head>
+
+<body>
+	<h1>Welcome to Meteor!</h1>
+    {{> tile}}
+</body>
+
+<template name="tile">
+  {{#if active}}
+    <b> Score</b><br>
+    {{> score}}
+    <b> Turn :</b> {{> turnIndicator}} {{#if valid}}{{> endTurn}}{{/if}} <br><br>
+    {{> board}}
+  {{else}}
+    {{> create}}
+  {{/if}}
+</template>
+
+<template name="hexagon">
+	<div class="hexagon {{selected}} {{status id}}" id="{{id}}"></div>
+</template>
+
+<template name="controls">
+	<input id="border" type="button" value="Border" />
+</template>
+
+<template name="create">
+	<input id="create" type="button" value="Start Game" />
+</template>
+
+<template name="turnIndicator">
+	Player: {{activePlayer}}
+</template>
+
+<template name="endTurn">
+	<input id="endTurn" type="button" value="Submit Turn" />
+</template>
+
+<template name="board">
+	<div id="" data-d="{{length}}">
+		{{#each rows}}
+		<div id="r{{rid}}" class="hex-row" style="margin-left:{{offset r}}px;" data-row="{{r}}">
+			{{#each hexs}} {{> hexagon id=this}} {{/each}}
+		</div>
+		{{/each}}
+	</div>
+</template>
+
+<template name="score">
+  {{#each scores}}
+    Player {{id}} : {{score}} <br>
+  {{/each}}
+</template>

@@ -1,0 +1,71 @@
+body { /* no highlighting on double click */
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+.hex-row {
+    clear: left;
+}
+
+/* http://csshexagon.com/ */
+/* this would have been much easier with images but it now operates on code
+only !!!!
+*/
+.hexagon {
+  float: left;
+  position: relative;
+  width: 135px;
+  height: 77.94px;
+  margin: 22px 4px;
+}
+
+.hexagon.selected {
+    border-style: solid;
+    border-color: red;
+}
+
+.hexagon.surrounding {
+    border-style: solid;
+    border-color: blue;
+}
+
+.hexagon.notselected {
+  background-color: #66cc66;
+}
+
+.hexagon.player-1 {
+  background-color: blue;
+}
+
+.hexagon.player-0 {
+  background-color: grey;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 67.5px solid transparent;
+  border-right: 67.5px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 38.97px solid #66cc66;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 38.97px solid #66cc66;
+}
+
+.parentContainer {
+    padding-top: 20px;
+    min-width: 1000px;
+    min-height: 1000px;
+    overflow: auto;
+}
